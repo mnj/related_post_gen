@@ -347,9 +347,9 @@ run_fsharp() {
         dotnet restore &&
         dotnet publish -c release &&
         if [ $HYPER == 1 ]; then
-            capture "F#" hyperfine -r 5 -w 2 --show-output "./bin/release/net7.0/fsharp"
+            capture "F#" hyperfine -r 5 -w 2 --show-output "./bin/release/net8.0/fsharp"
         else
-            command time -f '%es %Mk' ./bin/release/net7.0/fsharp
+            command time -f '%es %Mk' ./bin/release/net8.0/fsharp
         fi
 
     check_output "related_posts_fsharp.json"
@@ -359,11 +359,11 @@ run_csharp() {
     echo "Running CSharp" &&
         cd ./csharp &&
         dotnet restore &&
-        dotnet publish -c release --self-contained -o "bin/release/net7.0/publish" &&
+        dotnet publish -c release --self-contained -o "bin/release/net8.0/publish" &&
         if [ $HYPER == 1 ]; then
-            capture "C#" hyperfine -r 5 -w 2 --show-output "./bin/release/net7.0/publish/related"
+            capture "C#" hyperfine -r 5 -w 2 --show-output "./bin/release/net8.0/publish/related"
         else
-            command time -f '%es %Mk' ./bin/release/net7.0/publish/related
+            command time -f '%es %Mk' ./bin/release/net8.0/publish/related
         fi
 
     check_output "related_posts_csharp.json"
@@ -375,9 +375,9 @@ run_fsharp_con() {
         dotnet restore &&
         dotnet publish -c release &&
         if [ $HYPER == 1 ]; then
-            capture "F# Concurrent" hyperfine -r 5 -w 2 --show-output "./bin/release/net7.0/fsharp_con"
+            capture "F# Concurrent" hyperfine -r 5 -w 2 --show-output "./bin/release/net8.0/fsharp_con"
         else
-            command time -f '%es %Mk' ./bin/release/net7.0/fsharp_con
+            command time -f '%es %Mk' ./bin/release/net8.0/fsharp_con
         fi
 
     check_output "related_posts_fsharp_con.json"
