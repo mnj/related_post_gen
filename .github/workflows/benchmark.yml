@@ -82,8 +82,8 @@ jobs:
                   java-version: "21"
                   set-java-home: false
 
-            - name: Install Nim
-              uses: iffy/install-nim@v5
+            # - name: Install Nim
+            #   uses: iffy/install-nim@v5
 
             - name: Install Dotnet
               uses: actions/setup-dotnet@v3
