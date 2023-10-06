@@ -341,22 +341,6 @@ run_java_with_jmh() {
 
 }
 
-run_nim() {
-    # echo "Running Nim" &&
-    #     cd ./nim &&
-    #     nimble install -y &&
-    #     nim compile -d:release --threads:off --passL:"-flto -fprofile-generate" --passC:"-flto -fprofile-generate" src/related.nim &&
-    #     ./src/related &&
-    #     nim compile -d:release --threads:off --passL:"-flto -fprofile-use" --passC:"-flto -fprofile-use" src/related.nim &&
-    #     if [ $HYPER == 1 ]; then
-    #         capture "Nim" hyperfine -r 10 -w 2 --show-output "./src/related"
-    #     else
-    #         command time -f '%es %Mk' ./src/related
-    #     fi
-
-    # check_output "related_posts_nim.json"
-}
-
 run_fsharp() {
     echo "Running FSharp" &&
         cd ./fsharp &&
@@ -567,7 +551,6 @@ elif [ "$first_arg" = "all" ]; then
         run_js "deno" || echo -e "\n" &&
         run_java || echo -e "\n" &&
         run_java_graal || echo -e "\n" &&
-        run_nim || echo -e "\n" &&
         run_fsharp || echo -e "\n" &&
         run_fsharp_con || echo -e "\n" &&
         run_csharp || echo -e "\n" &&
